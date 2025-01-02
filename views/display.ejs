@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>No.</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Action</td>
+        </tr>
+        <%for(var i=0;i<mydata.length;i++){%>
+            <tr>
+                <td>
+                    <%=i+1%>
+                </td>
+                <td>
+                    <%=mydata[i].name%>
+                </td>
+                <td>
+                    <%=mydata[i].email%>
+                </td>
+                <td>
+                    <%=mydata[i].password%>
+                </td>
+                <td><a href="/edit/<%=mydata[i]._id%>">Edit</a> |
+                    <a href="/show/<%=mydata[i]._id%>">Show</a> |
+                    <a href="/delete/<%=mydata[i]._id%>" onclick="return confirm('Are you sure want to delete?')">Delete</a>
+                </td>
+            </tr>
+            <%}%>
+    </table>
+</body>
+
+</html>
